@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <app-form></app-form>
+        <p>hola</p>
+        </div>
+        <div class="col-sm">
+             <div class="shadow-sm"> 
+                <h4 class="card-text text-center">{{product.descripcion}}</h4>
+                <img class="imgContainer" src="{{product.miniatura}}" alt="">
+                <div class="card-body">
+                    <p class="text-center">Precio: {{product.precio| currency:'CAD':'symbol-narrow':'4.2-2'}}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div style="display: contents;" *ngIf="product.cantidadDisponible!==0">
+                            <button type="button" [routerLink]="[ '/product']" class="btn btn-primary">Solicitar</button>
+                            <small>Disponibles:{{product.cantidadDisponible}}</small>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
