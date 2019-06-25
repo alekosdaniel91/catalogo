@@ -11,13 +11,15 @@ import { FormComponent } from './components/form/form.component';
 import { ProductComponent } from './components/product/product.component';
 import { FormsModule } from '@angular/forms';
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
     FormComponent,
     ProductComponent,
-    CatalogoComponent
+    CatalogoComponent,
+    NavbarComponent
   ],
   imports: [
   

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiDataService } from '../../services/api-data.service';
+import { Data } from '../../models/data';
 
 @Component({
   selector: 'app-catalogo',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./catalogo.component.css']
 })
 export class CatalogoComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  private products: Data;
+  constructor(private apiData: ApiDataService) { 
+    this.getData();
   }
+
+  ngOnInit() {}
+  getData(){
+    this.apiData.getAllData().subscribe(res=>this.products=res)
+  }
+
 
 }

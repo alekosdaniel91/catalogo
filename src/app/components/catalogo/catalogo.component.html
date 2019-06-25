@@ -1,10 +1,19 @@
 <main role="main">
   <section class="text-center">
     <div class="container">
-      <h1 class="jumbotron-heading">Catalogo</h1>
-      <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+      <h1 class="jumbotron-heading">Catálogo</h1>
+      <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc.
+        Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
     </div>
   </section>
-  <app-card></app-card>
-  </main>
-  
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <h1 class="text-center"></h1>
+        <div class="col-md-3" *ngFor="let product of products; let i=index">
+          <app-card [product]="product" ></app-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

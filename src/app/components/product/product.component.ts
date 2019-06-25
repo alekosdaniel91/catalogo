@@ -13,12 +13,19 @@ export class ProductComponent implements OnInit {
   constructor(private apiData: ApiDataService) { }
   
   ngOnInit() {
-    this.getProdut();
-    console.log('product',this.products)
+    // this.getP(1);
+    this.showProduct()
   }
 
-  getProdut(){
-    this.apiData.getAllData().subscribe(res=>this.products=res);
-    console.log('productos',this.products)
-}
+  getProdut(i){
+    this.apiData.getAllData().subscribe(res=>{
+      console.log('productos',res[i].cantidadDisponible)
+    }
+    );
+  }
+
+  
+  showProduct(){
+    console.log('mostrar',this.apiData.produc())
+  }
 }
