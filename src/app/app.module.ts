@@ -11,6 +11,10 @@ import { FormComponent } from './components/form/form.component';
 import { ProductComponent } from './components/product/product.component';
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import {MatTableModule} from '@angular/material/table';
+import { TableComponent } from './components/table/table.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +22,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     FormComponent,
     ProductComponent,
     CatalogoComponent,
-    NavbarComponent
+    NavbarComponent,
+    TableComponent
   ],
   imports: [
   
@@ -27,6 +32,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule
+    
   ],
   providers: [ApiDataService],
   bootstrap: [AppComponent]

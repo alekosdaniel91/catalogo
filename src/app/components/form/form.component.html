@@ -18,7 +18,12 @@
 
       </div>
       <div class="form-row">
-          <label>Dirección de envio</label>
+        <div class="form-group col-md-6">
+          <label>Fecha de nacimiento</label>
+          <input type="date" class="form-control" #apellido="ngModel" name="fecha" [(ngModel)]="user.fecha">
+        </div>
+
+        <label>Dirección de envio</label>
           <input type="text" class="form-control" #direccion="ngModel" name="direccion" [(ngModel)]="user.direccion"
             placeholder="direccion" required>
         
@@ -27,15 +32,15 @@
         </div>
         <label>Ciudad</label>
         <select name="ciudad" placeholder="Ciudad" [(ngModel)]="user.ciudad" class="form-control form-control-lg">
-          <option value="option-1">Medellin</option>
-          <option value="option-2">Bogota</option>
+          <option value="Medellin">Medellín</option>
+          <option value="Bogota">Bogotá</option>
         </select><br>
       </div>
       <div class="form-row">
         
         <div class="form-group">
           <label for="exampleFormControlFile1">Cedula (pdf) </label>
-          <input type="file" class="form-control-file" id="exampleFormControlFile1">
+          <input type="file" accept=".pdf" (change)="upLoad($event)" class="form-control-file" id="exampleFormControlFile1">
         </div>
         
       </div>

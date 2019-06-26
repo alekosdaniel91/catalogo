@@ -13,13 +13,23 @@ export class FormComponent implements OnInit {
     apellido: '',
     direccion: '',
     ciudad: '',
+    fecha: new Date(),
+    id:0
   }
-  
+  public users: User[]=[];
   constructor() { }
 
   ngOnInit() {
   }
-  get(form :NgForm){
-    
+  onRegister(form :NgForm){
+    if(form.valid){
+      this.user.id++
+      this.users.push(this.user)
+      let user_string = JSON.stringify(this.users);
+    localStorage.setItem("currentUser", user_string);
+    }
+    }
+  upLoad(e){
+    console.log('e',e)
   }
 }

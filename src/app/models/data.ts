@@ -12,4 +12,6 @@ export interface User {
     apellido: string,
     direccion: string,
     ciudad: string,
+    fecha:Date,
+    id:number
 }
