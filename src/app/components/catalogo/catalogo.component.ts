@@ -17,6 +17,6 @@ export class CatalogoComponent implements OnInit {
   getData(){
     this.apiData.getAllData().subscribe(res=>this.products=res)
   }
-
+  
 
 }

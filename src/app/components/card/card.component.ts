@@ -9,9 +9,12 @@ import { Data } from '../../models/data';
 })
 export class CardComponent implements OnInit {
   @Input() product: Data;
+  @Input() catalogo: boolean=true;
 
   constructor(private apiData: ApiDataService) { }
   
   ngOnInit() {}
-    
+  sendProd(product:Data){
+    this.apiData.getProductID(product)
+  }  
 }
