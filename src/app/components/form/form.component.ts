@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/data';
+import { User, Data } from '../../models/data';
 import { NgForm } from '@angular/forms';
 
+interface HTMLInputEvent extends Event {
+  target: HTMLInputElement & EventTarget;
+}
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -17,19 +20,36 @@ export class FormComponent implements OnInit {
     id:0
   }
   public users: User[]=[];
-  constructor() { }
+  constructor() { 
+    console.log('local afuera',localStorage.getItem("currentUser"));
+    
+  }
 
   ngOnInit() {
   }
   onRegister(form :NgForm){
+    
     if(form.valid){
-      this.user.id++
-      this.users.push(this.user)
-      let user_string = JSON.stringify(this.users);
-    localStorage.setItem("currentUser", user_string);
+      this.user.id++;
+      let user_string = JSON.stringify(this.user);
+      
+    localStorage.setItem("UserID"+this.user.id.toString(), user_string);
     }
+    this.users.map(s=>s=this.user)
+    console.log('usuarios',this.users)
     }
-  upLoad(e){
-    console.log('e',e)
+  upLoad(e:HTMLInputElement){
+    let size=e.files[0].size/1024/1024;
+    let type=e.files[0].type
+    if(size>1){
+      alert('El archivo debe ser mernor a  1MB y es de ' + size + "MB");
+    }
+    console.log('que trae',e.files[0])
+    if(type !=="application/pdf"){
+      alert('El archivo debe tener formato PDF');
+      return 0
+    }
+    
+  
   }
 }
