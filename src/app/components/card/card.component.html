@@ -1,7 +1,9 @@
 <div class="card mb-3 shadow-sm containerCard">
   <h4 class="card-text text-center">{{product.descripcion}}</h4>
-  <img class="imgContainer" src="{{product.miniatura}}" alt="">
+
   <div class="card-body">
+    <a (click)="openDialog(product.imagen)"><img class="imgContainer" src="{{product.miniatura}}" alt="">
+    </a>
     <p class="text-center">Precio: {{product.precio| currency:'CAD':'symbol-narrow':'4.2-2'}}</p>
     <div class="d-flex justify-content-between align-items-center" *ngIf="catalogo">
       <div style="display: contents;" *ngIf="product.cantidadDisponible!==0">

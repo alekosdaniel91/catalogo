@@ -15,6 +15,8 @@ import {MatTableModule} from '@angular/material/table';
 import { TableComponent } from './components/table/table.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
+import { ModalComponent } from './components/modal/modal.component';
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import {MatInputModule} from '@angular/material';
     ProductComponent,
     CatalogoComponent,
     NavbarComponent,
-    TableComponent
+    TableComponent,
+    ModalComponent
   ],
   imports: [
   
@@ -34,9 +37,11 @@ import {MatInputModule} from '@angular/material';
     FormsModule,
     MatTableModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
     
   ],
+  entryComponents: [ModalComponent],
   providers: [ApiDataService],
   bootstrap: [AppComponent]
 })
