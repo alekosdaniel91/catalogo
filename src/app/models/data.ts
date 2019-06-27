@@ -8,10 +8,12 @@ export interface Data {
     precio: number,
 }
 export interface User {
-    nombre: string,
-    apellido: string,
-    direccion: string,
-    ciudad: string,
-    fecha:Date,
-    id:number
+    
+    nombre?: string,
+    apellido?: string,
+    cedulaPdf?:string,
+    direccion?: string,
+    ciudad?: string,
+    fecha?:any,
+    id?:number,
 }

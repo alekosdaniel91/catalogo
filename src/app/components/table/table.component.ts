@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  User } from '../../models/data';
 
 import {MatTableDataSource} from '@angular/material/table';
+import { ApiDataService } from '../../services/api-data.service';
 
 @Component({
   selector: 'app-table',
@@ -10,18 +11,18 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class TableComponent implements OnInit {
  public users: User[] = []
-    displayedColumns: string[] = ['Id', 'Nombre', 'Apellido', 'Fecha', 'Direccion'];
-    dataSource = new MatTableDataSource(this.users);
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
+ public displayedColumns: string[] = ['Id', 'Nombre', 'Apellido', 'Fecha', 'Direccion'];
+ public dataSource = new MatTableDataSource(this.users);
   
-  constructor() {
-    this.users.push(JSON.parse(localStorage.getItem("currentUser")));
-    console.log(this.users[0])
-   }
+  
+  constructor( private apiData:ApiDataService) {}
 
   ngOnInit() {
+    this.apiData.getUser().subscribe(r=>this.users=r)
   }
-
+  
+applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    }
+  
 }
