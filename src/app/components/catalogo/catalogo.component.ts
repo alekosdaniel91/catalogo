@@ -13,7 +13,9 @@ export class CatalogoComponent implements OnInit {
     this.getData();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+   this.apiData.users.subscribe(r=>console.log(r))
+  }
   getData(){
     this.apiData.getAllData().subscribe(res=>this.products=res)
   }
