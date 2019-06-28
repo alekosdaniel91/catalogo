@@ -11,7 +11,7 @@ import { ApiDataService } from '../../services/api-data.service';
 })
 export class TableComponent implements OnInit {
  public users: User[] = []
- public displayedColumns: string[] = ['Id', 'Nombre', 'Apellido', 'Fecha', 'Direccion'];
+ public displayedColumns: string[] = ['Id', 'Nombre', 'Apellido', 'Fecha', 'Direccion',"cedulaPdf", "Ciudad"];
  public dataSource = new MatTableDataSource(this.users);
   
   
